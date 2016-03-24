@@ -1,0 +1,73 @@
+mixin section(title)
+	.container.text-center
+		.row
+			.col-md-12
+				h2=title
+				h5 Lorem ipsum dolor sit amet consectetur
+
+
+//- MIXIN SERVICES
+mixin iconservice(iconservice)
+	case iconservice
+		when "commerce"
+			i.fa.fa-shopping-cart
+		when "responsive"
+			i.fa.fa-laptop
+		when "desing"
+			i.fa.fa-lock
+
+mixin services(icono1, title1,icono2, title2,icono3, title3)
+	.row
+		.col-md-4
+			+iconservice(icono1)
+			h5= title1
+			p= texto
+		.col-md-4
+			+iconservice(icono2)
+			h5= title2
+			p= texto
+		.col-md-4
+			+iconservice(icono3)
+			h5= title3
+			p= texto
+
+
+//- MIXIN PORTFOLIO
+mixin imgpng(url)
+	img.img-responsive(src='img/portfolio/' + url + '.png')
+
+mixin imagenes(url1, url2, url3)
+	.row
+		.col-md-4
+			+imgpng(url1)
+		.col-md-4
+			+imgpng(url2)
+		.col-md-4
+			+imgpng(url3)
+
+
+//- MIXIN TEAM
+mixin imgjpg(url)
+	img.img-circle(src='img/team/' + url + '.jpg')
+
+mixin team(url,title1,title2)
+	.col-md-4
+		+imgjpg(url)
+		h4=title1
+		h5=title2
+		a.fa.fa-twitter(href="#")
+		a.fa.fa-facebook(href="#")
+		a.fa.fa-linkedin(href="#")
+		//- block mediasocial
+
+
+//- MIXIN SPONSOR
+mixin imgjpg_sponsor(url)
+	img(src='img/logos/'+ url + '.jpg')
+
+
+//- MIXIN CONTACT
+mixin form-group(name,text)
+	.form-group
+		label.sr-only(for='#{name}') #{name} 
+		input.form-control(id='#{name}',type=type,placeholder='#{text}')
