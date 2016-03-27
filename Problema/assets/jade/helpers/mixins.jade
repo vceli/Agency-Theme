@@ -10,25 +10,25 @@ mixin section(title)
 mixin iconservice(iconservice)
 	case iconservice
 		when "commerce"
-			i.fa.fa-shopping-cart
+			i.fa.fa-shopping-cart.fa-stack
 		when "responsive"
-			i.fa.fa-laptop
+			i.fa.fa-laptop.fa-stack
 		when "desing"
-			i.fa.fa-lock
+			i.fa.fa-lock.fa-stack
 
 mixin services(icono1, title1,icono2, title2,icono3, title3)
 	.row
 		.col-md-4
 			+iconservice(icono1)
-			h5= title1
+			h4= title1
 			p= texto
 		.col-md-4
 			+iconservice(icono2)
-			h5= title2
+			h4= title2
 			p= texto
 		.col-md-4
 			+iconservice(icono3)
-			h5= title3
+			h4= title3
 			p= texto
 
 
@@ -36,15 +36,29 @@ mixin services(icono1, title1,icono2, title2,icono3, title3)
 mixin imgpng(url)
 	img.img-responsive(src='img/portfolio/' + url + '.png')
 
-mixin imagenes(url1, url2, url3)
+mixin imagenes(url1,title1,text1, url2,title2,text2, url3,title3,text3)
 	.row
-		.col-md-4
+		.col-xs-12.col-sm-4.col-md-4
 			+imgpng(url1)
-		.col-md-4
+			.caption_img
+				h4= title1
+				h5= text1
+		.col-xs-12.col-sm-4.col-md-4
 			+imgpng(url2)
-		.col-md-4
+			.caption_img
+				h4= title2
+				h5= text2
+		.col-xs-12.col-sm-4.col-md-4
 			+imgpng(url3)
+			.caption_img
+				h4= title3
+				h5= text3
 
+//- MIXIN ABOUT
+mixin panel(texto1,texto2)
+		h4= texto1
+		h4= texto2
+		p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!
 
 //- MIXIN TEAM
 mixin imgjpg(url)
@@ -54,10 +68,10 @@ mixin team(url,title1,title2)
 	.col-md-4
 		+imgjpg(url)
 		h4=title1
-		h5=title2
-		a.fa.fa-twitter(href="#")
-		a.fa.fa-facebook(href="#")
-		a.fa.fa-linkedin(href="#")
+		p=title2
+		a.fa.fa-twitter.fa-stack(href="#")
+		a.fa.fa-facebook.fa-stack(href="#")
+		a.fa.fa-linkedin.fa-stack(href="#")
 		//- block mediasocial
 
 
